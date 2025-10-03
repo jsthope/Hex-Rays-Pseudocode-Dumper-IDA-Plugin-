@@ -37,4 +37,38 @@ The result is **always copied to the clipboard** and can be **optionally saved a
 
 ## Installation
 
-1. Save the plugin file as:
+1. Save the plugin file as: dump_hexrays_pseudocode.py
+2. Drop it into your IDA **plugins** folder, e.g.:
+- **Windows**:  
+  `C:\Program Files\IDA\plugins\` or `%APPDATA%\Hex-Rays\IDA Pro\plugins\`
+- **Linux/macOS**:  
+  `~/.idapro/plugins/` or your IDA install’s `plugins/` directory
+3. Restart IDA.
+
+You’ll find the actions under **Edit** (or **Edit → Plugins** depending on IDA version).
+
+---
+
+## Requirements
+
+- IDA 7/8/9
+- Hex-Rays decompiler for the target architecture
+- For OS clipboard fallbacks (optional):
+- Windows: built-in `clip`
+- macOS: `pbcopy`
+- Linux: `wl-copy` (Wayland) or `xclip` (X11)
+
+The plugin uses IDA’s internal clipboard API first; OS tools are only a fallback.
+
+---
+
+## Usage
+
+- Press **Alt+Shift+D** to dump to **clipboard** (no file by default).
+- Toggle **Save to .c** when you want automatic saving next to the IDB.
+- Or call the explicit actions to force saving either next to the IDB or to a chosen file.
+
+Output headers look like:
+```c
+/*******************************************************************************/
+/*** function_name @ 0x401234 ***/
