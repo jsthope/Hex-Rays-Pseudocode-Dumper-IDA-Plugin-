@@ -1,3 +1,5 @@
+ty chatgpt
+
 # Hex-Rays Pseudocode Dumper (IDA Plugin)
 
 Concatenate Hex-Rays pseudocode for **non-library** (and non-thunk) functions into a single text.
